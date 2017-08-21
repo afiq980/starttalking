@@ -1,12 +1,12 @@
 """
-Django settings for playundercover project on Heroku. For more info, see:
+Django settings for intelicopter project on Heroku. For more info, see:
 https://github.com/heroku/heroku-django-template
 
 For more information on this file, see
-https://docs.djangoproject.com/en/1.11/topics/settings/
+https://docs.djangoproject.com/en/1.10/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.11/ref/settings/
+https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
@@ -18,10 +18,10 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "^0pclzdae-9t$yu$3qc=_txhdal+9d!5x%dd!qjj)u0-lw%9^9"
+SECRET_KEY = "y-os6=gp4=fqcw5&xcb4v%5p)img(f+j^_m7jj^l*#u5bv_i=1"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'playundercover',
+    'playundercover'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'playundercover.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(PROJECT_ROOT, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,29 +72,35 @@ TEMPLATES = [
     },
 ]
 
+#TEMPLATE_DIRS = (
+#    os.path.join(PROJECT_ROOT, 'templates'),
+#)
+
 WSGI_APPLICATION = 'playundercover.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'dee81bb9uap89n',
-#         'USER': 'jelabiiksabbkj',
-#         'PASSWORD': 'c7c67c82b6edaf85a4593c88669d6995dd2b14d1ea9454a30a87e6b0723ab937',
-#         'HOST': 'ec2-50-19-219-69.compute-1.amazonaws.com',
-#         'PORT': '5432',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dee81bb9uap89n',
+        'USER': 'jelabiiksabbkj',
+        'PASSWORD': 'c7c67c82b6edaf85a4593c88669d6995dd2b14d1ea9454a30a87e6b0723ab937',
+        'HOST': 'ec2-50-19-219-69.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -112,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.11/topics/i18n/
+# https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -120,8 +126,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Change 'default' database configuration with $DATABASE_URL.
-DATABASES['default'] = dj_database_url.config(conn_max_age=500)
+# Update database configuration with $DATABASE_URL.
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -130,7 +137,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
