@@ -78,23 +78,23 @@ WSGI_APPLICATION = 'playundercover.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dee81bb9uap89n',
-        'USER': 'jelabiiksabbkj',
-        'PASSWORD': 'c7c67c82b6edaf85a4593c88669d6995dd2b14d1ea9454a30a87e6b0723ab937',
-        'HOST': 'ec2-50-19-219-69.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'dee81bb9uap89n',
+#         'USER': 'jelabiiksabbkj',
+#         'PASSWORD': 'c7c67c82b6edaf85a4593c88669d6995dd2b14d1ea9454a30a87e6b0723ab937',
+#         'HOST': 'ec2-50-19-219-69.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
