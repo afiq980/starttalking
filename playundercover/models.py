@@ -24,7 +24,7 @@ class Pair(models.Model):
 
 class User(models.Model):
     id = models.AutoField(primary_key=True)
-    email = models.CharField(max_length=50, primary_key=True)
+    email = models.CharField(max_length=50)
 
     class Meta:
         app_label = 'playundercover'
@@ -41,7 +41,7 @@ class UserPair(models.Model):
 
 class Namelist(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, unique=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=14)
 
     class Meta:
