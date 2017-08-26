@@ -31,8 +31,7 @@
             max-width: 950px;
             background-color: white;
             height: 100%;
-            width: auto;
-            display: table;
+            width: 100%;
         }
     }
 
@@ -59,8 +58,7 @@
     .container {
         background-color: white;
         height: 100%;
-        width: auto;
-        display: table;
+        width: 100%;
     }
 
     .green-container {
@@ -76,42 +74,36 @@
     }
 
     .btn {
-        width: 80%;
-        margin-bottom: 32px;
+        width: 70%;
         letter-spacing: 5px;
         font-family: Open Sans, sans-serif;
     }
 
-    .reglogButton {
+    .signButton {
         background: #116466;
-        height: 50%;
+        height: 52px;
         border: 1px solid #d1e8e2;
         color: #d1e8e2;
         font-size: 20px;
+        margin-top: 32px;
     }
 
-    .reglogButton:hover {
+    .signButton:hover {
         background: #d1e8e2;
-        height: 50%;
+        height: 52px;
         border: 1px solid #116466;
         color: #116466;
         font-size: 20px;
     }
 
-    .qpButton {
-        background: #2c3531;
-        height: 50%;
-        border: 1px solid #d9b08c;
+    .header2-container {
+        width: 70%;
         color: #d9b08c;
-        font-size: 24px;
-    }
-
-    .qpButton:hover {
-        background: #d9b08c;
-        height: 50%;
-        border: 1px solid #2c3531;
-        color: #2c3531;
-        font-size: 24px;
+        font-size: 20px;
+        letter-spacing: 5px;
+        text-align: left;
+        margin-top: 32px;
+        margin-bottom: 5px;
     }
 
     .header-container {
@@ -128,9 +120,7 @@
         width: 80%;
         color: #d1e8e2;
         font-size: 20px;
-        text-align: center;
-        text-align: justify;
-        text-justify: distribute;
+        text-align: left;
     }
 
     .submitButton {
@@ -139,6 +129,7 @@
         border: 1px solid #d1e8e2;
         color: #d1e8e2;
         font-size: 12px;
+        margin-bottom: 32px;
     }
 
     .submitButton:hover {
@@ -147,7 +138,9 @@
         border: 1px solid #116466;
         color: #116466;
         font-size: 12px;
+        margin-bottom: 32px;
     }
+
 
 </style>
 
@@ -161,7 +154,6 @@
 
 <body style='background-color: #e5e5e5;'>
 
-
 <div class="container">
 
     <!-- TOP BAR -->
@@ -172,46 +164,40 @@
         </div>
     </nav><!-- TOP BAR -->
 
-    <!-- LOG IN/REG -->
-    <div class="row green-container">
-        <!-- HERO IMAGE -->
-        <div>
-            <img class="img-responsive"
-                 src="https://lh3.googleusercontent.com/-pph_0VWKVIQ/V9uF_V7bqrI/AAAAAAAAAK0/mKBMlzOMwvIGEBzpmgLRkV2Bwd9lKcTiACHMYBhgL/h250/"
-                 alt="Chania" style="margin: 0 auto; margin-bottom:32px; display: block;">
-        </div><!-- HERO IMAGE -->
-
-     <a href="/login/" class="center-block btn btn-primary btn-responsive reglogButton" role="button">LOG IN</a>
-     <a href="google.com" class="center-block btn btn-primary btn-responsive reglogButton" role="button">REGISTER</a>
-     <a href="google.com" class="center-block btn btn-primary qpButton" role="button">QUICK PLAY</a>
-
-    </div> <!-- LOG IN/REG -->
-
-    <!-- INTRO -->
+    <!-- SIGN IN -->
     <div class="row black-container">
-        <div class="row center-block header-container">
-            THE GAME
+
+        <div class="row center-block header2-container">
+            EMAIL
         </div>
 
-        <div class="row center-block text-container">
-            Aim of the game is to find out who are playing undercover among the citizens.
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="feedback" placeholder="Email Address"
+                       style='font-family: Open Sans, sans-serif;height: 52px; width: 70%; margin: 0 auto;'>
+            </div>
+        </form>
+
+        <div class="row center-block header2-container">
+            PASSWORD
         </div>
 
-        <div class="row center-block header-container">
-            HOW TO PLAY
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="feedback" placeholder="Password"
+                       style='font-family: Open Sans, sans-serif; height: 52px; width: 70%; margin: 0 auto;'>
+            </div>
+        </form>
+
+        <button type="button" class="center-block btn btn-primary btn-responsive signButton">SIGN IN</button>
+
+        <div class="row center-block text-container"
+             style="font-size: 16px; text-align: center; color: #d9b08c; margin-top: 14px; margin-bottom: 32px; ">
+            Not registered? Click here to sign up.
         </div>
 
-        <div class="row center-block text-container">
-            Citizens will be assigned the same word and undercovers will be assigned a word similar to the ones citizens
-            have. <br><br>
 
-            Each round, players must give a word or phrase as a clue to what their word is. After every round, players
-            can collectively decide if they want to guess the undercover and reveal a player's identity, or continue
-            playing the next round without revealing anyone's identity.<br><br>
-
-            There will be an option to add Mr. White who will be assigned no word.<br><br>
-        </div>
-    </div> <!-- INTRO -->
+    </div> <!-- SIGN IN -->
 
     <!-- FEEDBACK -->
     <div class="row green-container">
@@ -224,23 +210,22 @@
             Meet the Team <br>
             Open Source Libraries <br>
             Feedback <br>
-        </div>
 
-        <form action='/feedback/' method='post'>
-            <div class="row center-block text-container form-group">
-                <input type="text" class="form-control" id="feedback" placeholder="Click to type"
-                       style='font-family: Open Sans, sans-serif;'>
-            </div>
-            <button type="submit" class="btn btn-primary btn-responsive submitButton" style="width: 40%; height: 32px;">
-                SUBMIT
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="feedback" placeholder="Click to type"
+                           style='font-family: Open Sans, sans-serif;'>
+                </div>
+            </form>
+
+            <button type="button" class=" btn btn-primary btn-responsive submitButton"
+                    style="width: 40%; height: 32px;">SUBMIT
             </button>
-        </form>
 
+        </div> <!-- FEEDBACK -->
 
-    </div> <!-- FEEDBACK -->
+    </div>
 
-
-</div>
 
 </body>
 
