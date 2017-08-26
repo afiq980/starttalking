@@ -26,7 +26,7 @@ def authentication(request):
             auth_login(request, user)
             c = {}
             c.update(csrf(request))
-            return redirect('dashboard')
+            return redirect('home')
         else:
             c = {}
             c.update(csrf(request))
