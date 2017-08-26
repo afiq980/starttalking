@@ -8,141 +8,144 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
-<meta name="viewport" content="width=device-width, initial-scale=0.4, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=0.4, maximum-scale=1.0, user-scalable=no"/>
 
 <style>
 
     html,
-body {
-  height: 100%;
-}
+    body {
+        height: 100%;
+    }
 
-body {
-  padding-top: 54px;
-}
+    body {
+        padding-top: 54px;
+    }
 
-label {
-  display: block;
-  text-align: left;
-}
+    label {
+        display: block;
+        text-align: left;
+    }
 
-@media only screen and (min-width: 950px) {
-  .container {
-    max-width: 950px;
-    background-color: white;
-    height: 100%;
-    width: 100%;
-  }
-}
+    @media only screen and (min-width: 950px) {
+        .container {
+            max-width: 950px;
+            background-color: white;
+            height: 100%;
+            width: 100%;
+            display: table;
+        }
+    }
 
-.navbar-custom {
-  background: #116466;
-  width: 100%;
-  border: 0px solid #d1e8e2;
+    .navbar-custom {
+        background: #116466;
+        width: 100%;
+        border: 0px solid #d1e8e2;
+        -webkit-box-shadow: 0 8px 6px -6px #000;
+        -moz-box-shadow: 0 8px 6px -6px #000;
+        box-shadow: 0 8px 6px -6px #000;
+        margin: 0 auto;
+    }
 
-  margin: 0 auto;
-}
+    .navbar-text {
+        height: 24px;
+        font-size: 24px;
+        font-family: Open Sans, sans-serif;
+        letter-spacing: 5px;
+        text-align: center;
+        display: inline-block;
+        float: none;
+    }
 
-.navbar-text {
-  height: 24px;
-  font-size: 24px;
-  font-family: Open Sans, sans-serif;
-  letter-spacing: 5px;
-  text-align:center;
-  display:inline-block;
-  float:none;
-}
+    .container {
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        display: table;
+    }
 
+    .green-container {
+        background: #116466;
+        width: 100%;
+    }
 
-.container {
-  background-color: white;
-  height: 100%;
-  width: 100%;
-}
+    .black-container {
+        background: #2c3531;
+        width: 100%;
+    }
 
-.green-container {
-  background: #116466;
-  width: 100%;
-}
+    .btn {
+        width: 70%;
+        margin-bottom: 32px;
+        letter-spacing: 5px;
+        font-family: Open Sans, sans-serif;
+    }
 
-.black-container {
-  background: #2c3531;
-  width: 100%;
-}
+    .reglogButton {
+        background: #116466;
+        height: 52px;
+        border: 1px solid #d1e8e2;
+        color: #d1e8e2;
+        font-size: 20px;
+    }
 
-.btn {
-  width: 70%;
-  margin-bottom: 32px;
-  letter-spacing: 5px;
-  font-family: Open Sans, sans-serif;
-}
+    .reglogButton:hover {
+        background: #d1e8e2;
+        height: 52px;
+        border: 1px solid #116466;
+        color: #116466;
+        font-size: 20px;
+    }
 
-.reglogButton {
-  background: #116466;
-  height: 52px;
-  border: 1px solid #d1e8e2;
-  color: #d1e8e2;
-  font-size: 20px;
-}
+    .qpButton {
+        background: #2c3531;
+        height: 91px;
+        border: 1px solid #d9b08c;
+        color: #d9b08c;
+        font-size: 24px;
+    }
 
-.reglogButton:hover {
-  background: #d1e8e2;
-  height: 52px;
-  border: 1px solid #116466;
-  color: #116466;
-  font-size: 20px;
-}
+    .qpButton:hover {
+        background: #d9b08c;
+        height: 91px;
+        border: 1px solid #2c3531;
+        color: #2c3531;
+        font-size: 24px;
+    }
 
-.qpButton {
-  background: #2c3531;
-  height: 91px;
-  border: 1px solid #d9b08c;
-  color: #d9b08c;
-  font-size: 24px;
-}
+    .header-container {
+        width: 70%;
+        color: #d9b08c;
+        font-size: 20px;
+        letter-spacing: 5px;
+        text-align: center;
+        margin-top: 32px;
+        margin-bottom: 5px;
+    }
 
-.qpButton:hover {
-  background: #d9b08c;
-  height: 91px;
-  border: 1px solid #2c3531;
-  color: #2c3531;
-  font-size: 24px;
-}
+    .text-container {
+        width: 80%;
+        color: #d1e8e2;
+        font-size: 20px;
+        text-align: center;
+        text-align: justify;
+        text-justify: distribute;
+    }
 
-.header-container {
-  width: 70%;
-  color: #d9b08c;
-  font-size: 20px;
-  letter-spacing: 5px;
-  text-align: center;
-  margin-top: 32px;
-  margin-bottom: 5px;
-}
+    .submitButton {
+        background: #116466;
+        height: 52px;
+        border: 1px solid #d1e8e2;
+        color: #d1e8e2;
+        font-size: 12px;
+    }
 
-.text-container {
-  width: 80%;
-  color: #d1e8e2;
-  font-size: 20px;
-  text-align: center;
-  text-align: justify;
-  text-justify: distribute;
-}
-
-.submitButton {
-  background: #116466;
-  height: 52px;
-  border: 1px solid #d1e8e2;
-  color: #d1e8e2;
-  font-size: 12px;
-}
-
-.submitButton:hover {
-  background: #d1e8e2;
-  height: 52px;
-  border: 1px solid #116466;
-  color: #116466;
-  font-size: 12px;
-}
+    .submitButton:hover {
+        background: #d1e8e2;
+        height: 52px;
+        border: 1px solid #116466;
+        color: #116466;
+        font-size: 12px;
+    }
 
 </style>
 
@@ -159,69 +162,78 @@ label {
 
 <div class="container">
 
-<!-- TOP BAR -->
+    <!-- TOP BAR -->
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-      <div>
-      <a class="navbar-brand navbar-text" href="/" style='padding-top: 3px; padding-bottom: 10px; color: #d1e8e2;'>UNDERCOVER</a>
-      </div>
+        <div>
+            <a class="navbar-brand navbar-text" href="/"
+               style='padding-top: 3px; padding-bottom: 10px; color: #d1e8e2;'>UNDERCOVER</a>
+        </div>
     </nav><!-- TOP BAR -->
 
-<!-- LOG IN/REG -->
-  <div class="row center-block green-container">
-  <!-- HERO IMAGE -->
-  <div>
-  <img class="img-responsive" src="https://lh3.googleusercontent.com/-pph_0VWKVIQ/V9uF_V7bqrI/AAAAAAAAAK0/mKBMlzOMwvIGEBzpmgLRkV2Bwd9lKcTiACHMYBhgL/h250/" alt="Chania" style="margin: 0 auto; margin-bottom:32px; ">
-   </div><!-- HERO IMAGE -->
-     <button type="button" class="center-block btn btn-primary btn-responsive reglogButton">LOG IN</button>
-     <button type="button" class="center-block btn btn-primary btn-responsive reglogButton">REGISTER</button>
-     <button type="button" class="center-block btn btn-primary qpButton">QUICK PLAY</button>
-  </div> <!-- LOG IN/REG -->
+    <!-- LOG IN/REG -->
+    <div class="row center-block green-container">
+        <!-- HERO IMAGE -->
+        <div>
+            <img class="img-responsive"
+                 src="https://lh3.googleusercontent.com/-pph_0VWKVIQ/V9uF_V7bqrI/AAAAAAAAAK0/mKBMlzOMwvIGEBzpmgLRkV2Bwd9lKcTiACHMYBhgL/h250/"
+                 alt="Chania" style="margin: 0 auto; margin-bottom:32px; ">
+        </div><!-- HERO IMAGE -->
+        <button type="button" class="center-block btn btn-primary btn-responsive reglogButton">LOG IN</button>
+        <button type="button" class="center-block btn btn-primary btn-responsive reglogButton">REGISTER</button>
+        <button type="button" class="center-block btn btn-primary qpButton">QUICK PLAY</button>
+    </div> <!-- LOG IN/REG -->
 
-<!-- INTRO -->
-  <div class="row center-block black-container">
-     <div class="row center-block header-container">
-     THE GAME
-  </div>
+    <!-- INTRO -->
+    <div class="row center-block black-container">
+        <div class="row center-block header-container">
+            THE GAME
+        </div>
 
-  <div class="row center-block text-container">
-    Aim of the game is to find out who are playing undercover among the    citizens.
-  </div>
+        <div class="row center-block text-container">
+            Aim of the game is to find out who are playing undercover among the citizens.
+        </div>
 
-  <div class="row center-block header-container">
-    HOW TO PLAY
-  </div>
+        <div class="row center-block header-container">
+            HOW TO PLAY
+        </div>
 
-  <div class="row center-block text-container">
-   Citizens will be assigned the same word and undercovers will be assigned a word similar to the ones citizens have. <br><br>
+        <div class="row center-block text-container">
+            Citizens will be assigned the same word and undercovers will be assigned a word similar to the ones citizens
+            have. <br><br>
 
-Each round, players must give a word or phrase as a clue to what their word is. After every round, players can collectively decide if they want to guess the undercover and reveal a player's identity, or continue playing the next round without revealing anyone's identity.<br><br>
+            Each round, players must give a word or phrase as a clue to what their word is. After every round, players
+            can collectively decide if they want to guess the undercover and reveal a player's identity, or continue
+            playing the next round without revealing anyone's identity.<br><br>
 
-There will be an option to add Mr. White who will be assigned no word.<br><br>
-   </div>
- </div> <!-- INTRO -->
+            There will be an option to add Mr. White who will be assigned no word.<br><br>
+        </div>
+    </div> <!-- INTRO -->
 
-<!-- FEEDBACK -->
- <div class="row center-block green-container">
+    <!-- FEEDBACK -->
+    <div class="row center-block green-container">
 
-    <div class="row center-block header-container">
-      UNDERCOVER
-      </div>
+        <div class="row center-block header-container">
+            UNDERCOVER
+        </div>
 
-    <div class="row center-block text-container">
-      Meet the Team <br>
-      Open Source Libraries <br>
-      Feedback <br>
-    </div>
+        <div class="row center-block text-container">
+            Meet the Team <br>
+            Open Source Libraries <br>
+            Feedback <br>
+        </div>
 
-    <form>
-      <div class="form-group">
-      <input type="text" class="form-control" id="feedback" placeholder="Click to type" style='font-family: Open Sans, sans-serif;'>
-     </div>
-     </form>
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="feedback" placeholder="Click to type"
+                       style='font-family: Open Sans, sans-serif;'>
+            </div>
+        </form>
 
-     <button type="button" class=" btn btn-primary btn-responsive submitButton" style="width: 40%; height: 32px;">SUBMIT</button>
+        <button type="button" class=" btn btn-primary btn-responsive submitButton" style="width: 40%; height: 32px;">
+            SUBMIT
+        </button>
 
-  </div> <!-- FEEDBACK -->
+    </div> <!-- FEEDBACK -->
 
 
 </div>
