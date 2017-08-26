@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib.auth import login as auth_login
-from django.core.context_processors import csrf
+from django.template.context_processors import csrf
 
 def home(request):
     return render(request, 'index.html', {})
