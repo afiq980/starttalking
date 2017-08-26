@@ -170,25 +170,23 @@
             EMAIL
         </div>
 
-        <form>
+        <form action="/authentication/" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" id="feedback" placeholder="Email Address"
+                <input type="text" class="form-control" id="feedback" placeholder="Email Address" name="email"
                        style='font-family: Open Sans, sans-serif;height: 52px; width: 70%; margin: 0 auto;'>
-            </div>
-        </form>
 
         <div class="row center-block header2-container">
             PASSWORD
         </div>
 
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control" id="feedback" placeholder="Password"
+                <input type="password" class="form-control" id="feedback" placeholder="Password" name="password"
                        style='font-family: Open Sans, sans-serif; height: 52px; width: 70%; margin: 0 auto;'>
             </div>
+
+            <button type="button" class="center-block btn btn-primary btn-responsive signButton">SIGN IN</button>
         </form>
 
-        <button type="button" class="center-block btn btn-primary btn-responsive signButton">SIGN IN</button>
+
 
         <div class="row center-block text-container"
              style="font-size: 16px; text-align: center; color: #d9b08c; margin-top: 14px; margin-bottom: 32px; ">
