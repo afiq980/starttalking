@@ -1,4 +1,5 @@
 import re
+import random
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.shortcuts import redirect
@@ -82,3 +83,39 @@ def process_register(request):
 
 def quickplay(request):
     return render(request, 'quickplay.html', {})
+
+
+def register_players(request):
+    player_names = request.POST.getlist('addmore[]')
+    number_of_u = request.POST['uNumber']
+    number_of_w = request.POST['wNumber']
+
+    player_names = player_names[:-1] # because last item is an extra blank item in list
+
+    player_assignment = assign_cuw(player_names, int(number_of_u), int(number_of_w))
+
+    return render(request, 'quickplay.html', {"player_assignment":player_assignment})
+
+
+# returns list of lists - [[civilians],[undercover],[white]]
+def assign_cuw(list_of_names, number_of_u, number_of_w):
+    if len(list_of_names) <= number_of_u + number_of_w:
+        return [[], [], []]
+
+    civilian_list = []
+    undercover_list = []
+    white_list = []
+
+    number_of_c = len(list_of_names) - number_of_u - number_of_w
+
+    random.shuffle(list_of_names)
+
+    for x in range(0, len(list_of_names)):
+        if x < number_of_c:
+            civilian_list.append(list_of_names.pop())
+        elif x < number_of_c + number_of_u:
+            undercover_list.append(list_of_names.pop())
+        else:
+            white_list.append(list_of_names.pop())
+
+    return [civilian_list, undercover_list, white_list]
