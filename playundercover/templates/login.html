@@ -166,10 +166,6 @@
     <!-- SIGN IN -->
     <div class="row black-container">
 
-        <div class='alert alert-warning'>
-        whahthththt
-        </div>
-
         <p id="Error"></p>
 
         <div class="row center-block header2-container">
@@ -181,9 +177,9 @@
                 <input type="text" class="form-control" id="feedback" placeholder="Email Address" name="email"
                        style='font-family: Open Sans, sans-serif;height: 52px; width: 70%; margin: 0 auto;'>
 
-        <div class="row center-block header2-container">
-            PASSWORD
-        </div>
+                <div class="row center-block header2-container">
+                    PASSWORD
+                </div>
 
                 <input type="password" class="form-control" id="feedback" placeholder="Password" name="password"
                        style='font-family: Open Sans, sans-serif; height: 52px; width: 70%; margin: 0 auto;'>
@@ -191,7 +187,6 @@
 
             <button type="submit" class="center-block btn btn-primary btn-responsive signButton">SIGN IN</button>
         </form>
-
 
 
         <div class="row center-block text-container"
@@ -225,23 +220,24 @@
                     style="width: 40%; height: 32px;">SUBMIT
             </button>
 
-        </div> <!-- FEEDBACK -->
+        </div>
 
-    </div>
+    </div> <!-- FEEDBACK -->
 
-    <script>
-        var error = {{error_message|safe}};
-        var text = "";
-        if (error.length > 0) {
-            text+="<div class='alert alert-warning'>"
-            text+=error
-            text+="</div>"
-        } else {
-            text+=error.length
-        }
-        document.getElementById("Error").innerHTML = text;
-    </script>
+</div>
 
+<script>
+    var error = {{error_message|safe}};
+    var text = "";
+    if (error.length > 0) {
+        text += "<div class='alert alert-warning'>"
+        text += error
+        text += "</div>"
+    } else {
+        text += error.length
+    }
+    document.getElementById("Error").innerHTML = text;
+</script>
 
 </body>
 
