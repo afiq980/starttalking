@@ -230,13 +230,13 @@
     var error = {{error_message|safe}};
     var text = "";
     if (error.length > 0) {
-        text += "<div class='alert alert-warning'>"
-        text += error
-        text += "</div>"
+        text += "<div class='alert alert-warning'>";
+        text += error;
+        text += "</div>";
     } else {
-        text += error.length
+        text += error.length;
     }
-    document.getElementById("Error").innerHTML = "HELLLOOOO";
+    document.getElementById("Error").innerHTML = text;
 </script>
 
 </body>
