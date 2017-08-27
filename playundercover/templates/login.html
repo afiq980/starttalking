@@ -166,6 +166,8 @@
     <!-- SIGN IN -->
     <div class="row black-container">
 
+        <p id="Error"></p>
+
         <div class="row center-block header2-container">
             EMAIL
         </div>
@@ -222,6 +224,16 @@
         </div> <!-- FEEDBACK -->
 
     </div>
+
+    <script>
+        var type = {{error_message|safe}};
+        var text = "";
+        if (type.length > 0) {
+            text+="<div class='alert alert-warning'>"
+            text+="Username/Password is wrong. Please try again."
+            text+="</div>"
+        }
+    </script>
 
 
 </body>

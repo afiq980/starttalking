@@ -18,7 +18,7 @@ def authentication(request):
     def errorHandle(error):
         c = {}
         c.update(csrf(request))
-        return render(request, 'login.html', {'error': error})
+        return render(request, 'login.html', {'error_message': error})
 
     if user is not None:
 
@@ -30,7 +30,8 @@ def authentication(request):
         else:
             c = {}
             c.update(csrf(request))
-            return render(request, "login.html", {})
+            error = 'Invalid username/password'
+            return errorHandle(error)
     elif user is None:
         c = {}
         c.update(csrf(request))
