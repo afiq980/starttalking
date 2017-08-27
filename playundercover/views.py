@@ -32,10 +32,10 @@ def authentication(request):
         else:
             c = {}
             c.update(csrf(request))
-            error = 'Invalid username/password'
+            error = 'Invalid username/password, please try again.'
             return error_handle(error)
     elif user is None:
         c = {}
         c.update(csrf(request))
-        error = 'Invalid username/password'
+        error = 'Invalid username/password, please try again.'
         return error_handle(error)
