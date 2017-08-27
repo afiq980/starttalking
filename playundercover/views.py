@@ -1,3 +1,4 @@
+import re
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.shortcuts import redirect
@@ -55,6 +56,12 @@ def process_register(request):
         c = {}
         c.update(csrf(request))
         return render(request, 'register.html', {'error_message': error})
+
+    if not re.match(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email):
+        c = {}
+        c.update(csrf(request))
+        error = 'Invalid email address, please try again.'
+        return error_handle(error)
 
     if User.objects.filter(username=email).exists():
         c = {}
