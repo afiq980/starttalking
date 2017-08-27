@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^register/', views.register, name='register'),
     url(r'^authentication/', views.authentication, name='authentication'),
     url(r'^process-register/', views.process_register, name='process_register'),
+    url(r'^quickplay/', views.quickplay, name='quickplay'),
 ]

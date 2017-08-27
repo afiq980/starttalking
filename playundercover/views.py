@@ -78,3 +78,7 @@ def process_register(request):
             error = 'Passwords do not match, please try again.'
             return error_handle(error)
     return render(request, 'register.html', {})
+
+
+def quickplay(request):
+    return render(request, 'quickplay.html', {})
