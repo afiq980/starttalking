@@ -16,7 +16,7 @@ class Pair(models.Model):
     word1 = models.CharField(max_length=20)
     word2 = models.CharField(max_length=20)
     level = models.IntegerField(default=0)
-    season = models.ForeignKey(Season, on_delete=models.CASCADE, null=True, default=None)
+    season = models.ForeignKey(Season, blank=True, null=True, default=None)
 
     class Meta:
         app_label = 'playundercover'
