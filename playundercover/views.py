@@ -124,6 +124,7 @@ def assign_cuw(list_of_names, number_of_u, number_of_w):
     return [civilian_list, undercover_list, white_list]
 
 
+# returns list of lists - [[civilians words],[undercover words],[You are Mr White]]
 def assign_word(request, cuw_assignment, difficulty_level, season_name):
     word_pair = get_pair(request, difficulty_level, season_name)
 
@@ -166,11 +167,40 @@ def get_pair(request, difficulty_level, season_name):
         pair_list.filter(season=Season.objects.get(name=season_name))
 
     if current_user is not None:
-
         userpair_list = list(UserPair.objects.only("pair").all())
         choose_pair = list(set(pair_list) - set(userpair_list))
 
         return choose_pair[random.randint(0, len(choose_pair) - 1)]
-
     else:
         return pair_list[random.randint(0, len(pair_list) - 1)]
+
+
+def turn_reveal(request):
+    pass
+
+
+def get_list_of_turns():
+    pass
+
+# returns name of next player
+def get_next_player(cuw_list, played_names):
+    civilian_list = cuw_list[0]
+    undercover_list = cuw_list[1]
+    white_list = cuw_list[2]
+
+    # remove the names of those that have played
+    for played_name in played_names:
+        for cuw_sub_list in cuw_list:
+            try:
+                cuw_sub_list.remove(played_name)
+            except:
+                pass
+
+    # civilians are 3 times more likely than undercover and whites to play next
+    choose_list = []
+    choose_list.extend(3 * civilian_list)
+    choose_list.extend(undercover_list)
+    choose_list.extend(white_list)
+    decider = random.randint(0, len(choose_list) - 1)
+
+    return choose_list[decider]

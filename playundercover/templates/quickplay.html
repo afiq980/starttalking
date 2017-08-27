@@ -72,27 +72,30 @@
         display: block;
     }
 
-    .name-entry {
-        width: 90%;
-    }
-
     .btn {
         width: 70%;
-        margin-bottom: 32px;
-        letter-spacing: 5px;
         font-family: Open Sans, sans-serif;
     }
 
-    .qpButton:hover {
-        background: #d9b08c;
-        height: 91px;
-        border: 1px solid #2c3531;
-        color: #2c3531;
-        font-size: 24px;
+    .nextButton {
+        background: #116466;
+        height: 52px;
+        border: 1px solid #d1e8e2;
+        color: #d1e8e2;
+        font-size: 20px;
+        margin-top: 32px;
+    }
+
+    .nextButton:hover {
+        background: #d1e8e2;
+        height: 52px;
+        border: 1px solid #116466;
+        color: #116466;
+        font-size: 20px;
     }
 
     .header-container {
-        width: 90%;
+        width: 70%;
         color: #d9b08c;
         font-size: 20px;
         letter-spacing: 5px;
@@ -102,13 +105,14 @@
     }
 
     .text-container {
-        width: 80%;
+        width: 70%;
         color: #d1e8e2;
         font-size: 20px;
         text-align: center;
         text-align: justify;
         text-justify: distribute;
     }
+
 
 </style>
 
@@ -132,89 +136,107 @@
         </div>
     </nav><!-- TOP BAR -->
 
-    <!-- LOG IN/REG -->
-    <div class="row green-container">
+    <form action="/register-players/" method="post">
+        <!-- ADD NAMES -->
+        <div class="row green-container">
 
-        <div class="row center-block header-container">
-            ADD PLAYERS
-        </div>
+            <div class="row center-block header-container">
+                PLAYER NAMES
+            </div>
+            <div class="row center-block text-container"
+                 style="font-size: 16px; text-align: left; color: #d1e8e2; margin-bottom: 32px; ">
+                Min. no. of players recommended is 4.
+            </div>
 
-        <div class="row center-block name-entry">
 
-            <form action="/register-players/" method="post"> {% csrf_token %}
-                <div class="control-group input-group" style="width:100%; margin-bottom:10px;">
-                    <input type="text" name="addmore[]" class="form-control" style="border-radius: 3px !important;"
+            <div class="row">
+
+                <div class="control-group input-group" style="width:66.5%; margin: 0 auto;">
+                    <input type="text" name="addmore[]" class="form-control"
+                           style="border-radius: 3px !important; height: 52px; margin-bottom: 5px;"
                            placeholder="Enter Name Here">
                 </div>
-                <div class="control-group input-group" style="width:100%; margin-bottom:10px;">
-                    <input type="text" name="addmore[]" class="form-control" style="border-radius: 3px !important;"
+
+                <div class="control-group input-group" style="width:66.5%; margin-bottom:5px; margin: 0 auto;">
+                    <input type="text" name="addmore[]" class="form-control"
+                           style="border-radius: 3px !important; height: 52px; margin-bottom: 5px;"
                            placeholder="Enter Name Here">
                 </div>
-                <div class="control-group input-group after-add-more" style="width:100%; margin-bottom:10px;">
-                    <input type="text" name="addmore[]" class="form-control" style="border-radius: 3px !important;"
+
+                <div class="control-group input-group after-add-more"
+                     style="width:66.5%; margin-bottom:5px; margin: 0 auto;">
+                    <input type="text" name="addmore[]" class="form-control"
+                           style="border-radius: 3px !important;height: 52px; margin-bottom: 5px;"
                            placeholder="Enter Name Here">
                 </div>
 
 
-                <!-- Copy Fields -->
+                <!-- COPY FIELDS -->
                 <div class="copy hide">
-                    <div class="control-group input-group" style="margin-top:0px">
-                        <input type="text" name="addmore[]" class="form-control" placeholder="Enter Name Here">
+                    <div class="control-group input-group" style="margin-top:0px; width: 66.5%; margin: 0 auto;">
+                        <input type="text" name="addmore[]" class="form-control" placeholder="Enter Name Here"
+                               style=" height: 52px; margin-bottom: 5px; ">
+
+                        <!-- REMOVE PLAYER BUTTON -->
                         <div class="input-group-btn">
-                            <button class="btn btn-danger remove" style="width:100%; margin-bottom:10px" type="button">
-                                <i
-                                        class="glyphicon glyphicon-remove"></i></button>
+                            <button class="btn btn-danger remove"
+                                    style="width:100%; margin-bottom:5px; height: 52px;border: 1px solid #d1e8e2; background:#2c3531;"
+                                    type="button">
+                                <i class="glyphicon glyphicon-remove" style="color:#d1e8e2;"></i></button>
                         </div>
                     </div>
                 </div>
 
+                <!-- ADD PLAYER BUTTON -->
                 <div class="input-group-btn">
-                    <button class="btn btn-success add-more" style="width:20%; height: 60px; margin-bottom:10px;
-                border-radius: 3px !important; display:block; margin-left:auto; margin-right:0;"
-                            type="button"><i
-                            class="glyphicon glyphicon-plus"></i></button>
+                    <button class="btn btn-success add-more"
+                            style="border: 1px solid #d1e8e2; background:#2c3531; width:20%; height: 52px; margin: 0 auto; margin-top: 27px; margin-bottom:32px;border-radius: 3px !important; display:block; text-align: center;"
+                            type="button">
+                        <i class="glyphicon glyphicon-plus" style="color:#d1e8e2;"></i></button>
                 </div>
 
+            </div>
+
+        </div>
+
+
+        <!-- UNDERCOVERS & MR.W -->
+        <div class="row black-container">
+
+            <div class="row center-block header-container">
+                SETTINGS
+            </div>
+            <div class="row center-block text-container" style="font-size: 16px; text-align: left; color: #d1e8e2; ">
+                Click to select no. of undercovers and Mr. Whites.
+            </div>
+
+            <div class="row center-block header-container">
+                NO. OF UNDERCOVERS
                 <input class='btn btn-default btn-sm btn-responsive' type='number' autocomplete='off' name='uNumber'
-                       placeholder='Number of Undercovers' value='1'></input>
+                       placeholder='No. of Undercovers' value='1'
+                       style="height: 52px;font-family: Open Sans, sans-serif; width: 100%; ">
+            </div>
+
+            <div class="row center-block header-container">
+                NO. OF MR. WHITES
+
                 <input class='btn btn-default btn-sm btn-responsive' type='number' autocomplete='off' name='wNumber'
-                       placeholder='Number of Mr Whites' value='0'></input>
+                       placeholder='No. of Mr Whites' value='0'
+                       style="height: 52px; font-family: Open Sans, sans-serif; width: 100%;">
+            </div>
+            <!-- UNDERCOVERS & MR.W -->
 
-                <button type="submit" class="center-block btn btn-primary btn-responsive regButton">NEXT</button>
 
-            </form>
-        </div>
-    </div><!-- LOG IN/REG --
-
-        <!-- FEEDBACK -->
-    <div class="row green-container">
-
-        <div class="row center-block header-container">
-            UNDERCOVER
-            {{ player_assignment|safe }}
+            <!-- NEXT BUTTON -->
+            <button type="submit" class="center-block btn btn-primary btn-responsive nextButton"
+                    style="margin-top: 32px; margin-bottom: 32px;">NEXT
+            </button><!-- NEXT BUTTON -->
         </div>
 
-        <div class="row center-block text-container" style="line-height: 200%;">
-            Meet the Team <br>
-            Open Source Libraries <br>
-            Feedback <br>
 
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="feedback" placeholder="Click to type"
-                           style='font-family: Open Sans, sans-serif;'>
-                </div>
-            </form>
+    </form>
 
-            <button type="button" class=" btn btn-primary btn-responsive submitButton"
-                    style="width: 40%; height: 32px;">SUBMIT
-            </button>
 
-        </div>
-
-    </div> <!-- FEEDBACK -->
-
-</div>
 </div>
 
 <script>
