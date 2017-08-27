@@ -7,15 +7,17 @@ from django.template.context_processors import csrf
 def home(request):
     return render(request, 'index.html', {})
 
+
 def login(request):
     return render(request, 'login.html', {})
 
-def authentication(request):
-    username = request.POST['email']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
 
-    def errorHandle(error):
+def authentication(request):
+    email = request.POST['email']
+    password = request.POST['password']
+    user = authenticate(username=email, password=password)
+
+    def error_handle(error):
         c = {}
         c.update(csrf(request))
         return render(request, 'login.html', {'error_message': error})
@@ -31,9 +33,9 @@ def authentication(request):
             c = {}
             c.update(csrf(request))
             error = 'Invalid username/password'
-            return errorHandle(error)
+            return error_handle(error)
     elif user is None:
         c = {}
         c.update(csrf(request))
         error = 'Invalid username/password'
-        return errorHandle(error)
+        return error_handle(error)

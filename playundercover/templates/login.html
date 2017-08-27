@@ -226,11 +226,11 @@
     </div>
 
     <script>
-        var type = {{error_message|safe}};
+        var error = {{error_message|safe}};
         var text = "";
-        if (type.length > 0) {
+        if (error.length > 0) {
             text+="<div class='alert alert-warning'>"
-            text+="Username/Password is wrong. Please try again."
+            text+=error
             text+="</div>"
         }
         document.getElementById("Error").innerHTML = text;
