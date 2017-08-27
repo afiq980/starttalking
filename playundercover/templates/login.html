@@ -169,7 +169,7 @@
         <p id="Error"></p>
 
         <div class="row center-block header2-container">
-            EMAIL
+            {{error_message|safe}}
         </div>
 
         <form action="/authentication/" method="post"> {% csrf_token %}
