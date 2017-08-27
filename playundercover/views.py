@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib.auth import login as auth_login
 from django.template.context_processors import csrf
+from django.contrib.auth.models import User
 
 def home(request):
     return render(request, 'index.html', {})
@@ -39,3 +40,34 @@ def authentication(request):
         c.update(csrf(request))
         error = 'Invalid username/password, please try again.'
         return error_handle(error)
+
+
+def register(request):
+    return render(request, 'register.html', {})
+
+
+def process_register(request):
+    email = request.POST['email']
+    password1 = request.POST['password1']
+    password2 = request.POST['password2']
+
+    def error_handle(error):
+        c = {}
+        c.update(csrf(request))
+        return render(request, 'register.html', {'error_message': error})
+
+    if User.objects.filter(username=email).exists():
+        c = {}
+        c.update(csrf(request))
+        error = 'Email address already exist, please log in instead.'
+        return error_handle(error)
+    else:
+        if password1 == password2:
+            user = User.objects.create_user(email, email, password1)
+            user.save()
+        else:
+            c = {}
+            c.update(csrf(request))
+            error = 'Passwords do not match, please try again.'
+            return error_handle(error)
+    return render(request, 'register.html', {})

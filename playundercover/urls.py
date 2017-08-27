@@ -21,5 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
     url(r'^login/', views.login, name='login'),
+    url(r'^register/', views.register, name='register'),
     url(r'^authentication/', views.authentication, name='authentication'),
+    url(r'^process-register/', views.process_register, name='process_register'),
 ]
