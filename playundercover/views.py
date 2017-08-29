@@ -1,5 +1,6 @@
 import re
 import random
+import ast
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.shortcuts import redirect
@@ -176,11 +177,22 @@ def get_pair(request, difficulty_level, season_name):
 
 
 def turn_reveal(request):
-    pass
+    cuw_list_str = request.POST['player_assignment']
+    cuw_list = ast.literal_eval(str(cuw_list_str.encode('utf-8')))
+    # cuw_list = cuw_list_str.encode("utf-8")
+    # cuw_list = json.loads(cuw_list_str.encode("utf-8"))
+    # cuw_list_mid = cuw_list_str.replace('[', '').split('],')
+    # cuw_list = [map(int, s.replace(']', '').split(',')) for s in cuw_list_mid]
 
+    total_number_of_players = len(cuw_list[0]) + len(cuw_list[1]) + len(cuw_list[2])
 
-def get_list_of_turns():
-    pass
+    played_names = []
+    while len(played_names) != total_number_of_players:
+        next_player = get_next_player(cuw_list, played_names)
+        played_names.append(next_player)
+
+    return render(request, 'turn-reveal.html', {"player_turns": played_names})
+
 
 # returns name of next player
 def get_next_player(cuw_list, played_names):
@@ -196,9 +208,9 @@ def get_next_player(cuw_list, played_names):
             except:
                 pass
 
-    # civilians are 3 times more likely than undercover and whites to play next
+    # civilians are a few times more likely than undercover and whites to play next. White is least likely to play next.
     choose_list = []
-    choose_list.extend(3 * civilian_list)
+    choose_list.extend(2 * civilian_list)
     choose_list.extend(undercover_list)
     choose_list.extend(white_list)
     decider = random.randint(0, len(choose_list) - 1)

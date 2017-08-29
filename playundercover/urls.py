@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^process-register/', views.process_register, name='process_register'),
     url(r'^quickplay/', views.quickplay, name='quickplay'),
     url(r'^register-players/', views.register_players, name='register_players'),
+    url(r'^turn-reveal/', views.turn_reveal, name='turn_reveal'),
 ]

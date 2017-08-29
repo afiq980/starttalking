@@ -151,24 +151,21 @@
         <p>
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
                     aria-expanded="false" aria-controls="collapseExample">
-                NAME
+                {{ player_turns }}
             </button>
         </p>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-block">
-                WORD REVEALED
-            </div>
-        </div>
 
-        <form action="/turn-reveal/" method="post"> {% csrf_token %}
-            <input id="data" type="hidden" name="player_assignment" value="{{ player_assignment }}">
+        {{ player_turns | safe}}
+
+        <form action="/register-players/" method="post"> {% csrf_token %}
+            <input id="data" type="hidden" name="data" value="{{ non_played_players }}">
+            <input id="data" type="hidden" name="data" value="{{ played_players }}">
 
             <!-- NEXT BUTTON -->
             <button type="submit" class="center-block btn btn-primary btn-responsive nextButton"
                     style="margin-top: 32px; margin-bottom: 32px;">NEXT PLAYER
             </button><!-- NEXT BUTTON -->
         </form>
-
 
     </div><!-- LOG IN/REG --
 
@@ -178,6 +175,7 @@
         <div class="row center-block header-container">
             UNDERCOVER
             {{ player_assignment|safe }}
+
             {{ word_assignment|safe }}
         </div>
 
