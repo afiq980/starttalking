@@ -10,6 +10,7 @@ from django.template.context_processors import csrf
 from django.contrib.auth.models import User
 from models import Season, Pair, UserPair
 
+
 def home(request):
     return render(request, 'index.html', {})
 
@@ -159,7 +160,6 @@ def get_pair(request, difficulty_level, season_name):
     if difficulty_level is None:
         difficulty_level = 0
 
-    pair_list = []
     if difficulty_level is 0:
         pair_list = list(Pair.objects.filter(level__lte=3))
     else:
@@ -180,10 +180,6 @@ def get_pair(request, difficulty_level, season_name):
 def turn_reveal(request):
     cuw_list_str = request.POST['player_assignment']
     cuw_list = ast.literal_eval(str(cuw_list_str.encode('utf-8')))
-    # cuw_list = cuw_list_str.encode("utf-8")
-    # cuw_list = json.loads(cuw_list_str.encode("utf-8"))
-    # cuw_list_mid = cuw_list_str.replace('[', '').split('],')
-    # cuw_list = [map(int, s.replace(']', '').split(',')) for s in cuw_list_mid]
 
     uw_list = []
     uw_list.extend(cuw_list[1])
@@ -245,11 +241,9 @@ def player_elim(request):
         return render(request, 'index.html', {})
     else:
         for uw in uw_list:
-            for player in player_list:
-                if str(uw.encode('utf-8')) == str(player.encode('utf-8')):
-                    shuffle(player_list)
-                    return render(request, 'turn-reveal.html', {"player_turns": player_list,
-                                                                "uw_list": request.POST['uw_list']})
+            if uw in player_list:
+                shuffle(player_list)
+                return render(request, 'turn-reveal.html', {"player_turns": player_list,
+                                                            "uw_list": request.POST['uw_list']})
         else:
             return render(request, 'index.html', {})
-
