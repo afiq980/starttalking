@@ -156,15 +156,19 @@
         </p>
 
         {{ player_turns | safe}}
-        {{ uw_list | safe }}
 
-        <form action="/player-elim-choose/" method="post"> {% csrf_token %}
+        <form action="/player-elim/" method="post"> {% csrf_token %}
             <input id="data" type="hidden" name="player_turns" value="{{ player_turns }}">
+{#            <input id="data" type="hidden" name="player_to_elim" value="{{ player_to_elim }}">#}
+{#            <input id="data" type="hidden" name="player_to_elim" value="mohamed">#}
             <input id="data" type="hidden" name="uw_list" value="{{ uw_list }}">
+
+            <input type="text" class="form-control" id="data" placeholder="KILL" name="player_to_elim"
+                       style='font-family: Open Sans, sans-serif;height: 52px; width: 70%; margin: 0 auto;'>
 
             <!-- NEXT BUTTON -->
             <button type="submit" class="center-block btn btn-primary btn-responsive nextButton"
-                    style="margin-top: 32px; margin-bottom: 32px;">Player Elim
+                    style="margin-top: 32px; margin-bottom: 32px;">NEXT PLAYER
             </button><!-- NEXT BUTTON -->
         </form>
 

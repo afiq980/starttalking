@@ -1,5 +1,6 @@
 import re
 import random
+from random import shuffle
 import ast
 from django.shortcuts import render
 from django.contrib.auth import authenticate
@@ -184,6 +185,17 @@ def turn_reveal(request):
     # cuw_list_mid = cuw_list_str.replace('[', '').split('],')
     # cuw_list = [map(int, s.replace(']', '').split(',')) for s in cuw_list_mid]
 
+    uw_list = []
+    uw_list.extend(cuw_list[1])
+    uw_list.extend(cuw_list[2])
+
+    played_names = get_player_turns(cuw_list)
+
+    return render(request, 'turn-reveal.html', {"player_turns": played_names,
+                                                "uw_list": uw_list})
+
+
+def get_player_turns(cuw_list):
     total_number_of_players = len(cuw_list[0]) + len(cuw_list[1]) + len(cuw_list[2])
 
     played_names = []
@@ -191,14 +203,11 @@ def turn_reveal(request):
         next_player = get_next_player(cuw_list, played_names)
         played_names.append(next_player)
 
-    return render(request, 'turn-reveal.html', {"player_turns": played_names})
+    return played_names
 
 
 # returns name of next player
 def get_next_player(cuw_list, played_names):
-    civilian_list = cuw_list[0]
-    undercover_list = cuw_list[1]
-    white_list = cuw_list[2]
 
     # remove the names of those that have played
     for played_name in played_names:
@@ -210,9 +219,37 @@ def get_next_player(cuw_list, played_names):
 
     # civilians are a few times more likely than undercover and whites to play next. White is least likely to play next.
     choose_list = []
-    choose_list.extend(2 * civilian_list)
-    choose_list.extend(undercover_list)
-    choose_list.extend(white_list)
+    choose_list.extend(2 * cuw_list[0])
+    choose_list.extend(cuw_list[1])
+    choose_list.extend(cuw_list[2])
     decider = random.randint(0, len(choose_list) - 1)
 
     return choose_list[decider]
+
+
+def player_elim_choose(request):
+    return render(request, 'player-elim.html', {"player_turns": request.POST['player_turns'],
+                                                "uw_list": request.POST['uw_list']})
+
+
+def player_elim(request):
+    player_list_str = request.POST['player_turns']
+    player_list = ast.literal_eval(str(player_list_str.encode('utf-8')))
+    player_to_elim = request.POST['player_to_elim']
+    uw_list_str = request.POST['uw_list']
+    uw_list = ast.literal_eval(str(uw_list_str.encode('utf-8')))
+
+    player_list.remove(player_to_elim)
+
+    if len(player_list) == 0:
+        return render(request, 'index.html', {})
+    else:
+        for uw in uw_list:
+            for player in player_list:
+                if str(uw.encode('utf-8')) == str(player.encode('utf-8')):
+                    shuffle(player_list)
+                    return render(request, 'turn-reveal.html', {"player_turns": player_list,
+                                                                "uw_list": request.POST['uw_list']})
+        else:
+            return render(request, 'index.html', {})
+
