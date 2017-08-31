@@ -14,7 +14,7 @@ from models import Question
 
 
 def home(request):
-    refresh_database()
+    # refresh_database()
     question_types_list = []
     return render(request, 'index.html', {"question_types_list": question_types_list})
 
