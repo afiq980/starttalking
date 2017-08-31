@@ -30,6 +30,10 @@ def process_question(request):
     except:
         question_types = ["General"]
         nsfw = False
+
+    if len(question_types) == 0:
+        question_types = ["General","Would You Rather","Philosophical"]
+
     question = get_question(question_types, nsfw)
     return render(request, 'index.html', {"question": question,
                                           "question_types": question_types,
