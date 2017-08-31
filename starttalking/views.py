@@ -14,6 +14,7 @@ from models import Question
 
 
 def home(request):
+    refresh_database()
     question_types_list = []
     return render(request, 'index.html', {"question_types_list":question_types_list})
 
@@ -57,6 +58,6 @@ def refresh_database():
     # question
     data = get_csv_data("question")
     for row in data:
-        Question.objects.create(question=int(row[0]),
+        Question.objects.create(question=row[0],
                                 type=row[1],
                                 nsfw=bool(row[2]))
