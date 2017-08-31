@@ -24,8 +24,12 @@ def get_question_types():
 
 
 def process_question(request):
-    question_types = request.POST.getlist('question_types')
-    nsfw = request.POST['nsfw']
+    try:
+        question_types = request.POST.getlist('question_types')
+        nsfw = request.POST['nsfw']
+    except:
+        question_types = ["General"]
+        nsfw = False
     question = get_question(question_types, nsfw)
     return render(request, 'index.html', {"question": question,
                                           "question_types": question_types,
