@@ -172,14 +172,13 @@
         </div>
     </nav><!-- TOP BAR -->
 
+
     <!-- LOG IN/REG -->
     <div class="row green-container">
-        <!-- HERO IMAGE -->
-        <div>
-            <img class="img-responsive"
-                 src="http://ec2-50-17-199-199.compute-1.amazonaws.com/images/healthy_kids/slideshow2.jpg"
-                 alt="Chania" style="margin: 0 auto; margin-bottom:32px; display: block;">
-        </div><!-- HERO IMAGE -->
+
+        <div class="row center-block header-container" style="font-size: 50px">
+            {{ question | safe }}
+        </div>
 
         <form action='/process_question/' method='post'>{% csrf_token %}
 

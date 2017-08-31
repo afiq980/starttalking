@@ -35,9 +35,9 @@ def process_question(request):
 def get_question(question_types, nsfw):
     question_pool = []
     for question_type in question_types:
-        question_pool.extend(list(question_pool.filter(type=question_type)))
+        question_pool.extend(list(Question.objects.filter(type=question_type)))
 
-    return question_pool[random.randint(0, len(question_pool) - 1)]
+    return question_pool[random.randint(0, len(question_pool) - 1)].question
 
 
 def get_csv_data(filename):
