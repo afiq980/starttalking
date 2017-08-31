@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'playundercover'
+    'starttalking'
 ]
 
 MIDDLEWARE = [
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'playundercover.urls'
+ROOT_URLCONF = 'starttalking.urls'
 
 TEMPLATES = [
     {
@@ -76,7 +76,7 @@ TEMPLATES = [
 #    os.path.join(PROJECT_ROOT, 'templates'),
 #)
 
-WSGI_APPLICATION = 'playundercover.wsgi.application'
+WSGI_APPLICATION = 'starttalking.wsgi.application'
 
 
 # Database

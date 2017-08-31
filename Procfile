@@ -1,1 +1,1 @@
-web: gunicorn playundercover.wsgi
+web: gunicorn starttalking.wsgi
