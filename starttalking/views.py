@@ -58,6 +58,6 @@ def refresh_database():
     # question
     data = get_csv_data("question")
     for row in data:
-        if len(row[1]) < 500:
+        if len(row[0]) < 500 and len(row[1]) < 20:
             Question.objects.create(question=row[0],
                                     type=row[1])
