@@ -19,14 +19,6 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home, name='home'),
-    url(r'^login/', views.login, name='login'),
-    url(r'^register/', views.register, name='register'),
-    url(r'^authentication/', views.authentication, name='authentication'),
-    url(r'^process-register/', views.process_register, name='process_register'),
-    url(r'^quickplay/', views.quickplay, name='quickplay'),
-    url(r'^register-players/', views.register_players, name='register_players'),
-    url(r'^turn-reveal/', views.turn_reveal, name='turn_reveal'),
-    url(r'^player-elim-choose/', views.player_elim_choose, name='player_elim_choose'),
-    url(r'^player-elim/', views.player_elim, name='player_elim'),
+    url(r'^$', views.home, name='index'),
+    url(r'^process_question', views.process_question, name='process_question'),
 ]

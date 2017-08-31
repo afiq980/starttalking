@@ -168,7 +168,7 @@
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div>
             <a class="navbar-brand navbar-text" href="/"
-               style='padding-top: 3px; padding-bottom: 10px; color: #d1e8e2;'>UNDERCOVER</a>
+               style='padding-top: 3px; padding-bottom: 10px; color: #d1e8e2;'>StartTalking</a>
         </div>
     </nav><!-- TOP BAR -->
 
@@ -177,68 +177,82 @@
         <!-- HERO IMAGE -->
         <div>
             <img class="img-responsive"
-                 src="https://lh3.googleusercontent.com/-pph_0VWKVIQ/V9uF_V7bqrI/AAAAAAAAAK0/mKBMlzOMwvIGEBzpmgLRkV2Bwd9lKcTiACHMYBhgL/h250/"
+                 src="http://ec2-50-17-199-199.compute-1.amazonaws.com/images/healthy_kids/slideshow2.jpg"
                  alt="Chania" style="margin: 0 auto; margin-bottom:32px; display: block;">
         </div><!-- HERO IMAGE -->
 
-     <a href="/login/" class="center-block btn btn-primary btn-responsive reglogButton" role="button">LOG IN</a>
-     <a href="/register/" class="center-block btn btn-primary btn-responsive reglogButton" role="button">REGISTER</a>
-     <a href="/quickplay/" class="center-block btn btn-primary qpButton" role="button">QUICK PLAY</a>
+        <form action='/process_question/' method='post'>{% csrf_token %}
+
+            <div class='row' data-toggle='buttons'>
+                <button class='center-block btn btn-primary btn-responsive reglogButton'><input type='checkbox'
+                                                                                                autocomplete='off'
+                                                                                                name='question_types'
+                                                                                                value='General'>
+                    <span>General</span></button>
+            </div>
+
+            <div class='row' data-toggle='buttons'>
+                <button class='center-block btn btn-primary btn-responsive reglogButton'><input type='checkbox'
+                                                                                                autocomplete='off'
+                                                                                                name='question_types'
+                                                                                                value='Would you rather?'>
+                    <span>Would you rather?</span></button>
+            </div>
+
+            <div class='row' data-toggle='buttons'>
+                <button class='center-block btn btn-primary btn-responsive reglogButton'><input type='checkbox'
+                                                                                                autocomplete='off'
+                                                                                                name='question_types'
+                                                                                                value='Philosophical'>
+                    <span>Philosophical</span></button>
+            </div>
+
+            <div class='row' data-toggle='buttons'>
+                <button class='center-block btn btn-primary btn-responsive reglogButton'><input type='checkbox'
+                                                                                                autocomplete='off'
+                                                                                                name='nsfw'
+                                                                                                value='False'>
+                    <span>NSFW</span></button>
+            </div>
+
+            <button type="submit" class="center-block btn btn-primary qpButton" role="button">START TALKING</button>
+
+        </form>
+
+
+
 
     </div> <!-- LOG IN/REG -->
 
     <!-- INTRO -->
     <div class="row black-container">
         <div class="row center-block header-container">
-            THE GAME
+            INSTRUCTIONS
         </div>
 
         <div class="row center-block text-container">
-            Aim of the game is to find out who are playing undercover among the citizens.
+            Select the type of questions to randomize from and start talking, it's that simple.<br><br>
         </div>
 
-        <div class="row center-block header-container">
-            HOW TO PLAY
-        </div>
-
-        <div class="row center-block text-container">
-            Citizens will be assigned the same word and undercovers will be assigned a word similar to the ones citizens
-            have. <br><br>
-
-            Each round, players must give a word or phrase as a clue to what their word is. After every round, players
-            can collectively decide if they want to guess the undercover and reveal a player's identity, or continue
-            playing the next round without revealing anyone's identity.<br><br>
-
-            There will be an option to add Mr. White who will be assigned no word.<br><br>
-        </div>
     </div> <!-- INTRO -->
 
     <!-- FEEDBACK -->
     <div class="row green-container">
 
         <div class="row center-block header-container">
-            UNDERCOVER
+            ABOUT US
         </div>
 
         <div class="row center-block text-container" style="line-height: 200%;">
             Meet the Team <br>
-            Open Source Libraries <br>
-            Feedback <br>
+            Open Source Libraries <br><br>
         </div>
 
-        <form action='/feedback/' method='post'>
-            <div class="row center-block text-container form-group">
-                <input type="text" class="form-control" id="feedback" placeholder="Click to type"
-                       style='font-family: Open Sans, sans-serif;'>
-
-            <button type="submit" class="btn btn-primary btn-responsive submitButton" style="width: 40%; height: 32px;">
-                SUBMIT
-            </button>
-            </div>
-        </form>
+    </div>
+    </form>
 
 
-    </div> <!-- FEEDBACK -->
+</div> <!-- FEEDBACK -->
 
 
 </div>
