@@ -60,5 +60,4 @@ def refresh_database():
     for row in data:
         if len(row[1]) < 500:
             Question.objects.create(question=row[0],
-                                    type=row[1],
-                                    nsfw=bool(row[2]))
+                                    type=row[1])
