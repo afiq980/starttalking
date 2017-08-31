@@ -16,7 +16,7 @@ from models import Question
 def home(request):
     refresh_database()
     question_types_list = []
-    return render(request, 'index.html', {"question_types_list":question_types_list})
+    return render(request, 'index.html', {"question_types_list": question_types_list})
 
 
 def get_question_types():
@@ -37,7 +37,7 @@ def get_question(question_types, nsfw):
     for question_type in question_types:
         question_pool.extend(list(question_pool.filter(type=question_type)))
 
-    return question_pool[random.randint(0, len(question_pool)-1)]
+    return question_pool[random.randint(0, len(question_pool) - 1)]
 
 
 def get_csv_data(filename):
@@ -58,6 +58,7 @@ def refresh_database():
     # question
     data = get_csv_data("question")
     for row in data:
-        Question.objects.create(question=row[0],
-                                type=row[1],
-                                nsfw=bool(row[2]))
+        if len(row[1]) < 500:
+            Question.objects.create(question=row[0],
+                                    type=row[1],
+                                    nsfw=bool(row[2]))
