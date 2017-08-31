@@ -176,8 +176,8 @@
     <!-- LOG IN/REG -->
     <div class="row green-container">
 
-        <div class="row center-block header-container" style="font-size: 50px">
-            {{ question | safe }}
+        <div class="row center-block header-container" style="font-size: 30px; text-align: left;">
+            {{ question | safe }}<br><br>
         </div>
 
         <form action='/process_question/' method='post'>{% csrf_token %}
@@ -194,7 +194,7 @@
                 <button class='center-block btn btn-primary btn-responsive reglogButton'><input type='checkbox'
                                                                                                 autocomplete='off'
                                                                                                 name='question_types'
-                                                                                                value='Would you rather?'>
+                                                                                                value='Would You Rather'>
                     <span>Would you rather?</span></button>
             </div>
 
@@ -206,13 +206,7 @@
                     <span>Philosophical</span></button>
             </div>
 
-            <div class='row' data-toggle='buttons'>
-                <button class='center-block btn btn-primary btn-responsive reglogButton'><input type='checkbox'
-                                                                                                autocomplete='off'
-                                                                                                name='nsfw'
-                                                                                                value='False'>
-                    <span>NSFW</span></button>
-            </div>
+            <input id='data' type='hidden' name='nsfw' value='False'>
 
             <button type="submit" class="center-block btn btn-primary qpButton" role="button">START TALKING</button>
 
