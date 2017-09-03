@@ -45,7 +45,7 @@ def get_question(question_types, nsfw):
     for question_type in question_types:
         question_pool.extend(list(Question.objects.filter(type=question_type)))
 
-    return "<br><br>" + question_pool[random.randint(0, len(question_pool) - 1)].question +"<br><br>"
+    return "<br>" + question_pool[random.randint(0, len(question_pool) - 1)].question +"<br><br>"
 
 
 def get_csv_data(filename):
