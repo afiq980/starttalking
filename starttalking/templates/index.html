@@ -29,7 +29,7 @@
     @media only screen and (min-width: 950px) {
         .container {
             max-width: 950px;
-            background: #116466;
+            background: #eee2dc;
             height: 100%;
             width: auto;
             display: table;
@@ -37,7 +37,7 @@
     }
 
     .navbar-custom {
-        background: #ffffff;
+        background: #123c69;
         width: 100%;
         border: 0px solid #d1e8e2;
         -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -56,72 +56,65 @@
     }
 
     .container {
-        background: #116466;
+        background: #eee2dc;
         height: 100%;
         width: auto;
         display: table;
     }
 
     .green-container {
-        background: #7cdbd5;
+        background: #eee2dc;
         width: auto;
         display: block;
     }
 
     .black-container {
-        background: #004e5a;
+        background: #edc7b7;
         width: auto;
         display: block;
     }
 
     .btn {
-        width: 60%;
-        margin-bottom: 15px;
         font-family: Open Sans, sans-serif;
     }
 
     .reglogButton {
-        background: #f9bd02;
+        background: #ac3b61;
         height: 50%;
-        color: #00303f;
+        color: #ffffff;
         font-size: 20px;
+        border: 1px solid #edc7b7;
     }
 
     .reglogButton:hover {
-        background: #f9bd02;
-        height: 50%;
-        color: #00303f;
-        font-size: 20px;
+        background: #8b304e;
     }
 
     .qpButton {
-        background: #f53240;
+        background: #123c69;
         height: 50%;
-        border: 1px solid #ffffff;
         color: #ffffff;
-        font-size: 24px;
+        font-size: 20px;
+        border: 0;
     }
 
     .qpButton:hover {
-        background: #f53240;
-        height: 50%;
-        border: 1px solid #ffffff;
-        color: #ffffff;
-        font-size: 24px;
+        background: #0f2e4f;
     }
 
     .header-container {
         width: 80%;
-        color: #004e5a;
+        color: #123c69;
         font-size: 20px;
-        text-align: center;
+        font-weight: 600;
+        text-align: left;
         margin-top: 15px;
         margin-bottom: 5px;
     }
 
     .text-container {
         width: 80%;
-        color: #ffffff;
+        color: #ac3b61;
         font-size: 20px;
         text-align: center;
         text-align: justify;
@@ -163,7 +156,7 @@
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div>
             <a class="navbar-brand navbar-text" href="/"
-               style='padding-top: 3px; padding-bottom: 10px; color: #004e5a;'>START TALKING</a>
+               style='padding-top: 3px; padding-bottom: 10px; color: #ffffff;'>START TALKING</a>
         </div>
     </nav><!-- TOP BAR -->
 
@@ -171,58 +164,58 @@
     <!-- LOG IN/REG -->
     <div class="row green-container">
 
-        <div class="row center-block header-container" style="font-size: 30px; text-align: left;">
-            {{ question | safe }}
+        <div class="row center-block header-container">
+            QUESTION
         </div>
 
-        <form action='/process_question/' method='post'>{% csrf_token %}
-
-            <div class='row' data-toggle='buttons'>
-                <button class='center-block btn btn-primary btn-responsive reglogButton'><input type='checkbox'
-                                                                                                autocomplete='off'
-                                                                                                name='question_types'
-                                                                                                value='General'>
-                    <span>General</span></button>
-            </div>
-
-            <div class='row' data-toggle='buttons'>
-                <button class='center-block btn btn-primary btn-responsive reglogButton'><input type='checkbox'
-                                                                                                autocomplete='off'
-                                                                                                name='question_types'
-                                                                                                value='Would You Rather'>
-                    <span>Would you rather?</span></button>
-            </div>
-
-            <div class='row' data-toggle='buttons'>
-                <button class='center-block btn btn-primary btn-responsive reglogButton'><input type='checkbox'
-                                                                                                autocomplete='off'
-                                                                                                name='question_types'
-                                                                                                value='Philosophical'>
-                    <span>Philosophical</span></button>
-            </div>
-
-            <input id='data' type='hidden' name='nsfw' value='False'>
-
-            <div class='row'>
-            <button type="submit" class="center-block btn btn-primary btn-responsive qpButton" role="button">START TALKING</button>
-            </div>
-
-        </form>
-
-
-
+        <div class="row center-block text-container" style="margin-bottom: 10px;">
+            {{ question | safe }}
+        </div>
 
     </div> <!-- LOG IN/REG -->
 
     <!-- INTRO -->
     <div class="row black-container">
-        <div class="row center-block header-container" style="color: #ffffff;">
-            INSTRUCTIONS
+        <div class="row center-block header-container">
+            NEXT QUESTION
         </div>
 
         <div class="row center-block text-container">
-            Select the type of questions to randomize from and start talking, it's that simple.<br><br>
+            Select the topic that you would like to talk about next. You may choose more than one conversation
+            topic.<br><br>
         </div>
+
+        <form action='/process_question/' method='post'>{% csrf_token %}
+
+            <div class="row center-block btn-group-vertical" role="group" style="width: 80%;" aria-label="Basic example"
+                 data-toggle='buttons'>
+                <button type="button" class="btn btn-primary btn-responsive reglogButton"><input type='checkbox'
+                                                                                                 autocomplete='off'
+                                                                                                 name='question_types'
+                                                                                                 value='General'>
+                    <span>General</span></button>
+                <button type="button" class="btn btn-primary btn-responsive reglogButton"><input type='checkbox'
+                                                                                                 autocomplete='off'
+                                                                                                 name='question_types'
+                                                                                                 value='Would You Rather'>
+                    <span>Would you rather?</span></button>
+                <button type="button" class="btn btn-primary btn-responsive reglogButton"><input type='checkbox'
+                                                                                                 autocomplete='off'
+                                                                                                 name='question_types'
+                                                                                                 value='Philosophical'>
+                    <span>Philosophical</span></button>
+
+
+            </div>
+
+            <button type="submit" class="center-block btn btn-primary btn-responsive qpButton" style="margin-top: 10px; margin-bottom: 10px; width: 80%;"role="button">
+                    START TALKING
+                </button>
+
+            <input id='data' type='hidden' name='nsfw' value='False'>
+
+
+        </form>
 
     </div> <!-- INTRO -->
 
